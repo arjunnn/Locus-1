@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Locus</string>
+    <string name="action_settings">Settings</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="logintext">Use your Google plus account to login</string>
+    <string name="login">Log In</string>
+</resources>

@@ -22,14 +22,17 @@ public class Login_Activity extends ActionBarActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
 
-    private GoogleApiClient mGoogleApiClient;
-    private static final int RC_SIGN_IN = 9001;
-    private static final String TAG = "SignInActivity";
+    private GoogleApiClient mGoogleApiClient;  // Google sign in button code
+    private static final int RC_SIGN_IN = 9001;  // Google sign in button code
+    private static final String TAG = "SignInActivity";  // Google sign in button code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_);
+
+        // Google sign in button code
+        findViewById(R.id.sign_in_button).setOnClickListener(this); // if we set like this, we can work on code in onClick()
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -44,6 +47,7 @@ public class Login_Activity extends ActionBarActivity implements
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setScopes(gso.getScopeArray());
+        // ~ Google sign in button code
 
     }
 
@@ -72,19 +76,20 @@ public class Login_Activity extends ActionBarActivity implements
     @Override
     public void onClick(View v) {
 
+        // Google sign in button code
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
                 break;
         }
+        // ~Google sign in button code
 
     }
-
+    // Google sign in button code
     private void signIn(){
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -114,6 +119,8 @@ public class Login_Activity extends ActionBarActivity implements
             //updateUI(false);
         }
     }
+
+    //~Google sign in button code
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {

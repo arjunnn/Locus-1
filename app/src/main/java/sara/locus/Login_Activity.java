@@ -106,9 +106,13 @@ public class Login_Activity extends ActionBarActivity implements
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
-            GoogleSignInAccount acct = result.getSignInAccount();
-            TextView displaysuccess = (TextView) findViewById(R.id.logintext);
-            displaysuccess.setText("Sign in Successful");
+           // GoogleSignInAccount acct = result.getSignInAccount();
+           // TextView displaysuccess = (TextView) findViewById(R.id.logintext);
+           // displaysuccess.setText("Sign in Successful");
+            Intent i = new Intent(getApplicationContext(),MapsActivity.class);
+            startActivity(i);
+
+
            // mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             //updateUI(true);
         } else {

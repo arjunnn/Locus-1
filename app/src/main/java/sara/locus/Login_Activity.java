@@ -12,6 +12,9 @@ public class Login_Activity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_);
+
+
+
     }
 
     @Override

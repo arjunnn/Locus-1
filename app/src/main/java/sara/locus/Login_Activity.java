@@ -1,8 +1,8 @@
 package sara.locus;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
@@ -18,7 +17,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 
-public class Login_Activity extends ActionBarActivity implements
+public class Login_Activity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
 
@@ -105,26 +104,19 @@ public class Login_Activity extends ActionBarActivity implements
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
-           // GoogleSignInAccount acct = result.getSignInAccount();
-           // TextView displaysuccess = (TextView) findViewById(R.id.logintext);
-           // displaysuccess.setText("Sign in Successful");
+            TextView displayLoginSuccess = (TextView) findViewById(R.id.loginText);
+            String loginSuccessString = getString(R.string.loginSuccessMessage);
+            displayLoginSuccess.setText(loginSuccessString);
+            //proceed to Map activity
             Intent i = new Intent(getApplicationContext(),MapsActivity.class);
             startActivity(i);
-
-
-           // mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            //updateUI(true);
-        } else {
-
-            TextView displayfail = (TextView) findViewById(R.id.logintext);
-            displayfail.setText("Sign in failed");
-            // Signed out, show unauthenticated UI.
-            //updateUI(false);
+        }
+        else {
+            TextView displayLoginFail = (TextView) findViewById(R.id.loginText);
+            String loginSuccessString = getString(R.string.loginFailMessage);
+            displayLoginFail.setText(loginSuccessString);
         }
     }
-
-    //~Google sign in button code
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {

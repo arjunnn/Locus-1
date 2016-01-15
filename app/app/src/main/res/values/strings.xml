@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Locus</string>
+    <string name="action_settings">Settings</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="loginText"> </string>
+    <string name="loginSuccessMessage">Successfully Signed In!</string>
+    <string name="loginFailMessage">Login Failed :(</string>
+    <string name="login">Log In</string>
+    <string name="title_activity_map_">MapsActivity</string>
+    <string name="loginOptionSeparator">OR</string>
+    <string name="facebook_app_id">788404937955665</string>
+    <string name="google_maps_key">AIzaSyC_mSCENypKTzup7CJCIgSdnGyrcDDeN_Q</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
